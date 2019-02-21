@@ -1,0 +1,6 @@
+print(ord('a'))
+print(ord('z'))
+print(ord('q'))
+print(ord('d'))
+print(ord('e'))
+print(ord('f'))
