@@ -14,7 +14,8 @@ while cont < tot_digitos :
 				buff = buff + texto[cont]
 				break
 		print("La palabra encontrada es",buff)
-		break
+		if cont == (tot_digitos - 1):
+			break
 
 	elif texto[cont] == "+":
 		print("Suma")
