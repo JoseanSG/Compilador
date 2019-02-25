@@ -60,32 +60,28 @@ while cont  < tot_digitos:
 			token = Token("palabra_reservada","Begin")
 			print(token.print())
 			tokens.append(token)
-			cont = cont + 1
 
 		elif buff == "Nucleo":
 			token = Token("palabra_reservada","Nucleo")
 			print(token.print())
 			tokens.append(token)
-			cont = cont + 1
 
 		elif buff == "Si":
 			token = Token("palabra_reservada","Si")
 			print(token.print())
 			tokens.append(token)
-			cont = cont + 1
 
 		elif buff == "Imprimir":
 			token = Token("palabra_reservada","Imprimir")
 			print(token.print())
 			tokens.append(token)
-			cont = cont + 1
 
 		elif buff == "Fin":
 			token = Token("palabra_reservada","Fin")
 			print(token.print())
 			tokens.append(token)
-			cont = cont + 1
-	# cont = cont + 1
+
+	cont = cont + 1
 print(len(tokens))
 # patron = re.compile(r'\W+')
 # palabras = patron.split(code)
