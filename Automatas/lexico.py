@@ -18,37 +18,8 @@ class Token:
 		
 while cont  < tot_digitos:
 	buff = ""
-	if code[cont] == "(":
-		token = Token("simbolo_de_(","(")
-		print(token.print())
-		tokens.append(token)
 
-	elif code[cont] == ")": 
-		token = Token("simbolo_de_)",")")
-		print(token.print())
-		tokens.append(token)
-
-	elif code[cont] == "==":
-		token = Token("simbolo_de_comparacion","==")
-		print(token.print())
-		tokens.append(token)
-
-	elif code[cont] =="=":
-		token = Token("simbolo_de_asignacion","=")
-		print(token.print())
-		tokens.append(token)
-
-	elif code[cont] == "+":
-		token = Token("simbolo_de_+","+")
-		print(token.print())
-		tokens.append(token)
-
-	elif code[cont] == '"':
-		token = Token('simbolo_de_"','"')
-		print(token.print())
-		tokens.append(token)
-
-	elif re.match('\w', code[cont]):
+	if re.match('\w', code[cont]):
 
 		while re.match('\w', code[cont]):
 			if cont == (tot_digitos - 1):
@@ -81,8 +52,50 @@ while cont  < tot_digitos:
 			print(token.print())
 			tokens.append(token)
 
+		elif re.match("[a-z]+[0-9]*", buff):
+			token = Token("identificador",buff)
+			print(token.print())
+			tokens.append(token)
+
+		elif buff.isdigit():
+			token = Token("tipo_dato_int",buff)
+			print(token.print())
+			tokens.append(token)
+
+	if code[cont] == "(":
+		token = Token("simbolo_de_(","(")
+		print(token.print())
+		tokens.append(token)
+
+	elif code[cont] == ")": 
+		token = Token("simbolo_de_)",")")
+		print(token.print())
+		tokens.append(token)
+
+	elif code[cont] == "=" and code[cont + 1] == "=":
+		token = Token("simbolo_de_comparacion","==")
+		print(token.print())
+		tokens.append(token)
+		cont = cont + 2
+
+	elif code[cont] =="=":
+		token = Token("simbolo_de_asignacion","=")
+		print(token.print())
+		tokens.append(token)
+
+	elif code[cont] == "+":
+		token = Token("simbolo_de_+","+")
+		print(token.print())
+		tokens.append(token)
+
+	elif code[cont] == '"':
+		cont = cont + 1
+		while code[cont] != '"':
+			buff = buff + code[cont]
+			cont = cont + 1
+		token = Token("tipo_dato_String",buff)
+		print(token.print())
+		tokens.append(token)
+
 	cont = cont + 1
 print(len(tokens))
-# patron = re.compile(r'\W+')
-# palabras = patron.split(code)
-# print(palabras)
