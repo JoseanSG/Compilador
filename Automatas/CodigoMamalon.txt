@@ -9,5 +9,6 @@ variable5 = variable1+5
 si(variable1==1) Begin
  9dqw Imprimir("hola")
 fin
+Esta es una modificacion
 
 fin
